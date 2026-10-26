@@ -1,0 +1,4 @@
+,silueta,davies_bouldin,calinski_harabasz,ARI_vs_segmento_latente,tamanos_clusters
+K-means,0.4851,0.7664,3486.3,0.946,"[813, 792, 610, 985]"
+K-medoids,0.4846,0.7621,3474.2,0.94,"[962, 808, 814, 616]"
+Jerárquico (Ward),0.4769,0.7824,3358.5,0.9644,"[1020, 796, 803, 581]"

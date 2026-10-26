@@ -1,0 +1,421 @@
+{
+  "semilla": 42,
+  "n_registros": 2000,
+  "variables_predictoras": [
+    "edad",
+    "glucosa",
+    "imc",
+    "presion",
+    "antecedentes"
+  ],
+  "distribuciones_teoricas": {
+    "edad": {
+      "dist": "Normal truncada",
+      "mu": 50.0,
+      "sigma": 15.0,
+      "a": 18.0,
+      "b": 90.0
+    },
+    "glucosa": {
+      "dist": "Normal",
+      "mu": 100.0,
+      "sigma": 20.0
+    },
+    "imc": {
+      "dist": "LogNormal",
+      "mu_log": 3.295836866004329,
+      "sigma_log": 0.18
+    },
+    "presion": {
+      "dist": "Normal",
+      "mu": 125.0,
+      "sigma": 15.0
+    },
+    "antecedentes": {
+      "dist": "Bernoulli",
+      "p": 0.3
+    }
+  },
+  "regla_etiqueta": {
+    "formula": "z = -11.5 + 0.03*edad + 0.05*glucosa + 0.08*imc + 0.015*presion + 1.0*antecedentes + e, e ~ N(0, 0.75); p = 1/(1+exp(-z)); diabetes = 'Sí' si p >= 0.5",
+    "intercepto": -11.5,
+    "coef": {
+      "edad": 0.03,
+      "glucosa": 0.05,
+      "imc": 0.08,
+      "presion": 0.015,
+      "antecedentes": 1.0
+    },
+    "sigma_ruido": 0.75,
+    "umbral_probabilidad": 0.5
+  },
+  "proporcion_clases": {
+    "conteo": {
+      "No": 1333,
+      "Sí": 667
+    },
+    "proporcion": {
+      "No": 0.6665,
+      "Sí": 0.3335
+    }
+  },
+  "estadisticas_descriptivas": {
+    "edad": {
+      "n": 2000.0,
+      "media": 50.6594,
+      "desv_std": 14.148,
+      "minimo": 18.1836,
+      "Q1": 40.144,
+      "mediana": 50.0903,
+      "Q3": 60.7022,
+      "maximo": 89.2997,
+      "asimetria": 0.1457,
+      "curtosis": -0.4373
+    },
+    "glucosa": {
+      "n": 2000.0,
+      "media": 100.404,
+      "desv_std": 19.9019,
+      "minimo": 38.7244,
+      "Q1": 86.7295,
+      "mediana": 100.3346,
+      "Q3": 113.5742,
+      "maximo": 161.7702,
+      "asimetria": 0.055,
+      "curtosis": -0.0295
+    },
+    "imc": {
+      "n": 2000.0,
+      "media": 27.4962,
+      "desv_std": 5.015,
+      "minimo": 12.2533,
+      "Q1": 23.9263,
+      "mediana": 27.1044,
+      "Q3": 30.3504,
+      "maximo": 50.2779,
+      "asimetria": 0.5766,
+      "curtosis": 0.8313
+    },
+    "presion": {
+      "n": 2000.0,
+      "media": 124.7541,
+      "desv_std": 14.9985,
+      "minimo": 79.057,
+      "Q1": 115.1731,
+      "mediana": 124.0928,
+      "Q3": 135.0163,
+      "maximo": 174.4078,
+      "asimetria": 0.0168,
+      "curtosis": -0.0531
+    },
+    "antecedentes": {
+      "n": 2000.0,
+      "media": 0.2945,
+      "desv_std": 0.4559,
+      "minimo": 0.0,
+      "Q1": 0.0,
+      "mediana": 0.0,
+      "Q3": 1.0,
+      "maximo": 1.0,
+      "asimetria": 0.9024,
+      "curtosis": -1.1869
+    }
+  },
+  "pruebas_bondad_ajuste": [
+    {
+      "variable": "edad",
+      "prueba": "Kolmogorov-Smirnov",
+      "hipotesis_nula": "edad sigue la distribución teórica (Normal truncada)",
+      "estadistico": 0.01762,
+      "p_valor": 0.5574,
+      "decision_alfa_0.05": "No se rechaza H0",
+      "decision_bonferroni": "No se rechaza H0"
+    },
+    {
+      "variable": "glucosa",
+      "prueba": "Kolmogorov-Smirnov",
+      "hipotesis_nula": "glucosa sigue la distribución teórica (Normal)",
+      "estadistico": 0.01786,
+      "p_valor": 0.53997,
+      "decision_alfa_0.05": "No se rechaza H0",
+      "decision_bonferroni": "No se rechaza H0"
+    },
+    {
+      "variable": "imc",
+      "prueba": "Kolmogorov-Smirnov",
+      "hipotesis_nula": "imc sigue la distribución teórica (LogNormal)",
+      "estadistico": 0.01769,
+      "p_valor": 0.55231,
+      "decision_alfa_0.05": "No se rechaza H0",
+      "decision_bonferroni": "No se rechaza H0"
+    },
+    {
+      "variable": "presion",
+      "prueba": "Kolmogorov-Smirnov",
+      "hipotesis_nula": "presion sigue la distribución teórica (Normal)",
+      "estadistico": 0.03632,
+      "p_valor": 0.00997,
+      "decision_alfa_0.05": "Se rechaza H0",
+      "decision_bonferroni": "No se rechaza H0"
+    },
+    {
+      "variable": "glucosa",
+      "prueba": "Shapiro-Wilk",
+      "hipotesis_nula": "glucosa es normal",
+      "estadistico": 0.99903,
+      "p_valor": 0.361,
+      "decision_alfa_0.05": "No se rechaza H0",
+      "decision_bonferroni": "No se rechaza H0"
+    },
+    {
+      "variable": "presion",
+      "prueba": "Shapiro-Wilk",
+      "hipotesis_nula": "presion es normal",
+      "estadistico": 0.99832,
+      "p_valor": 0.03929,
+      "decision_alfa_0.05": "Se rechaza H0",
+      "decision_bonferroni": "No se rechaza H0"
+    },
+    {
+      "variable": "imc",
+      "prueba": "Shapiro-Wilk sobre ln(IMC)",
+      "hipotesis_nula": "ln(IMC) es normal (equivale a IMC lognormal)",
+      "estadistico": 0.99867,
+      "p_valor": 0.12353,
+      "decision_alfa_0.05": "No se rechaza H0",
+      "decision_bonferroni": "No se rechaza H0"
+    },
+    {
+      "variable": "edad",
+      "prueba": "Shapiro-Wilk (normal sin truncar)",
+      "hipotesis_nula": "edad es normal SIN truncar (se espera rechazo leve por el truncamiento)",
+      "estadistico": 0.99428,
+      "p_valor": 0.0,
+      "decision_alfa_0.05": "Se rechaza H0",
+      "decision_bonferroni": "Se rechaza H0"
+    },
+    {
+      "variable": "antecedentes",
+      "prueba": "Chi-cuadrado de bondad de ajuste",
+      "hipotesis_nula": "antecedentes ~ Bernoulli(0.30)",
+      "estadistico": 0.2881,
+      "p_valor": 0.59144,
+      "decision_alfa_0.05": "No se rechaza H0",
+      "decision_bonferroni": "No se rechaza H0"
+    }
+  ],
+  "alfa": 0.05,
+  "alfa_bonferroni": 0.00556,
+  "conclusion_bondad_ajuste": "Sí, en general. Edad, glucosa, IMC y antecedentes no rechazan H0. Rechazos a alfa = 0.05: presion (Kolmogorov-Smirnov, p=0.00997); presion (Shapiro-Wilk, p=0.03929). Tras la corrección de Bonferroni (alfa = 0.0056) ninguna prueba rechaza H0, por lo que esos rechazos son compatibles con el error tipo I esperado al hacer varias pruebas (los datos se generaron exactamente con esas distribuciones). La edad rechaza normalidad SIN truncar (Shapiro), lo cual es lo esperado porque fue generada como normal truncada en [18, 90].",
+  "particion": {
+    "train": 1600,
+    "test": 400,
+    "estratificada": true,
+    "prop_si_train": 0.3337,
+    "prop_si_test": 0.3325
+  },
+  "parametros_modelos": {
+    "Regresión Logística": {
+      "C": 1.0,
+      "l1_ratio": 0.0,
+      "solver": "lbfgs",
+      "max_iter": 1000,
+      "random_state": 42,
+      "escalado": "StandardScaler"
+    },
+    "Random Forest": {
+      "n_estimators": 300,
+      "max_depth": null,
+      "min_samples_leaf": 2,
+      "max_features": "sqrt",
+      "bootstrap": true,
+      "n_jobs": -1,
+      "random_state": 42,
+      "escalado": "ninguno"
+    }
+  },
+  "metricas_modelos": {
+    "Regresión Logística": {
+      "test": {
+        "accuracy": 0.855,
+        "precision": 0.7737,
+        "recall": 0.797,
+        "f1": 0.7852
+      },
+      "train": {
+        "accuracy": 0.8581,
+        "precision": 0.8126,
+        "recall": 0.7472,
+        "f1": 0.7785
+      },
+      "matriz_confusion": {
+        "etiquetas": [
+          "No",
+          "Sí"
+        ],
+        "valores": [
+          [
+            236,
+            31
+          ],
+          [
+            27,
+            106
+          ]
+        ],
+        "VN": 236,
+        "FP": 31,
+        "FN": 27,
+        "VP": 106
+      }
+    },
+    "Random Forest": {
+      "test": {
+        "accuracy": 0.845,
+        "precision": 0.7752,
+        "recall": 0.7519,
+        "f1": 0.7634
+      },
+      "train": {
+        "accuracy": 0.9775,
+        "precision": 0.9863,
+        "recall": 0.9457,
+        "f1": 0.9656
+      },
+      "matriz_confusion": {
+        "etiquetas": [
+          "No",
+          "Sí"
+        ],
+        "valores": [
+          [
+            238,
+            29
+          ],
+          [
+            33,
+            100
+          ]
+        ],
+        "VN": 238,
+        "FP": 29,
+        "FN": 33,
+        "VP": 100
+      }
+    }
+  },
+  "referencia_regla_sin_ruido_test": {
+    "accuracy": 0.845,
+    "precision": 0.7518,
+    "recall": 0.797,
+    "f1": 0.7737
+  },
+  "mejor_modelo_f1": "Regresión Logística",
+  "coeficientes_lr_escalados": {
+    "edad": 0.9109,
+    "glucosa": 2.4306,
+    "imc": 0.8564,
+    "presion": 0.5549,
+    "antecedentes": 1.0718
+  },
+  "importancias_rf": {
+    "edad": 0.158,
+    "glucosa": 0.488,
+    "imc": 0.1613,
+    "presion": 0.1157,
+    "antecedentes": 0.077
+  },
+  "correlacion_con_diabetes": {
+    "edad": 0.2326,
+    "glucosa": 0.5498,
+    "imc": 0.2318,
+    "presion": 0.138,
+    "antecedentes": 0.2503
+  },
+  "experimento_tamano": [
+    {
+      "n": 500,
+      "modelo": "Random Forest",
+      "accuracy_media": 0.802,
+      "accuracy_desv": 0.0432,
+      "precision_media": 0.7123,
+      "precision_desv": 0.0751,
+      "recall_media": 0.6667,
+      "recall_desv": 0.0879,
+      "f1_media": 0.6847,
+      "f1_desv": 0.0584,
+      "accuracy_train_media": 0.9825,
+      "accuracy_train_desv": 0.0047
+    },
+    {
+      "n": 500,
+      "modelo": "Regresión Logística",
+      "accuracy_media": 0.834,
+      "accuracy_desv": 0.0404,
+      "precision_media": 0.7637,
+      "precision_desv": 0.0808,
+      "recall_media": 0.7152,
+      "recall_desv": 0.0433,
+      "f1_media": 0.7368,
+      "f1_desv": 0.047,
+      "accuracy_train_media": 0.861,
+      "accuracy_train_desv": 0.011
+    },
+    {
+      "n": 2000,
+      "modelo": "Random Forest",
+      "accuracy_media": 0.8365,
+      "accuracy_desv": 0.0134,
+      "precision_media": 0.774,
+      "precision_desv": 0.0278,
+      "recall_media": 0.7205,
+      "recall_desv": 0.0387,
+      "f1_media": 0.7454,
+      "f1_desv": 0.02,
+      "accuracy_train_media": 0.9759,
+      "accuracy_train_desv": 0.002
+    },
+    {
+      "n": 2000,
+      "modelo": "Regresión Logística",
+      "accuracy_media": 0.853,
+      "accuracy_desv": 0.0119,
+      "precision_media": 0.8008,
+      "precision_desv": 0.0374,
+      "recall_media": 0.7458,
+      "recall_desv": 0.0477,
+      "f1_media": 0.7709,
+      "f1_desv": 0.0226,
+      "accuracy_train_media": 0.849,
+      "accuracy_train_desv": 0.0118
+    },
+    {
+      "n": 10000,
+      "modelo": "Random Forest",
+      "accuracy_media": 0.8338,
+      "accuracy_desv": 0.0069,
+      "precision_media": 0.7697,
+      "precision_desv": 0.0202,
+      "recall_media": 0.7179,
+      "recall_desv": 0.0097,
+      "f1_media": 0.7428,
+      "f1_desv": 0.0112,
+      "accuracy_train_media": 0.9777,
+      "accuracy_train_desv": 0.0013
+    },
+    {
+      "n": 10000,
+      "modelo": "Regresión Logística",
+      "accuracy_media": 0.8454,
+      "accuracy_desv": 0.0042,
+      "precision_media": 0.7921,
+      "precision_desv": 0.0097,
+      "recall_media": 0.7291,
+      "recall_desv": 0.0195,
+      "f1_media": 0.7591,
+      "f1_desv": 0.0093,
+      "accuracy_train_media": 0.8505,
+      "accuracy_train_desv": 0.0058
+    }
+  ]
+}

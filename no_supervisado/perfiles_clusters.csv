@@ -1,0 +1,5 @@
+cluster_kmeans,edad,ingresos_anuales,frecuencia_mensual,ticket_promedio,gasto_mensual,n_clientes,pct,perfil
+0,67.48,23037.15,15.96,17.56,281.98,813,25.4,Adultos mayores: compra frecuente y de bajo ticket
+1,23.19,14737.87,4.82,19.49,92.95,792,24.8,Jóvenes/estudiantes: bajo ingreso y bajo gasto
+2,33.17,94360.63,3.11,112.11,342.69,610,19.1,"Profesionales premium: pocas visitas, ticket alto"
+3,41.38,39280.48,13.8,54.83,757.74,985,30.8,Familias: alta frecuencia y mayor gasto mensual

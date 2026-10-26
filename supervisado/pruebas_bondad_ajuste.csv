@@ -1,0 +1,10 @@
+﻿variable,prueba,hipotesis_nula,estadistico,p_valor,decision_alfa_0.05,decision_bonferroni
+edad,Kolmogorov-Smirnov,edad sigue la distribución teórica (Normal truncada),0.01762,0.5574,No se rechaza H0,No se rechaza H0
+glucosa,Kolmogorov-Smirnov,glucosa sigue la distribución teórica (Normal),0.01786,0.53997,No se rechaza H0,No se rechaza H0
+imc,Kolmogorov-Smirnov,imc sigue la distribución teórica (LogNormal),0.01769,0.55231,No se rechaza H0,No se rechaza H0
+presion,Kolmogorov-Smirnov,presion sigue la distribución teórica (Normal),0.03632,0.00997,Se rechaza H0,No se rechaza H0
+glucosa,Shapiro-Wilk,glucosa es normal,0.99903,0.361,No se rechaza H0,No se rechaza H0
+presion,Shapiro-Wilk,presion es normal,0.99832,0.03929,Se rechaza H0,No se rechaza H0
+imc,Shapiro-Wilk sobre ln(IMC),ln(IMC) es normal (equivale a IMC lognormal),0.99867,0.12353,No se rechaza H0,No se rechaza H0
+edad,Shapiro-Wilk (normal sin truncar),edad es normal SIN truncar (se espera rechazo leve por el truncamiento),0.99428,0.0,Se rechaza H0,Se rechaza H0
+antecedentes,Chi-cuadrado de bondad de ajuste,antecedentes ~ Bernoulli(0.30),0.2881,0.59144,No se rechaza H0,No se rechaza H0

@@ -1,0 +1,197 @@
+{
+  "semilla": 42,
+  "n_clientes": 3200,
+  "variables": [
+    "edad",
+    "ingresos_anuales",
+    "frecuencia_mensual",
+    "ticket_promedio",
+    "gasto_mensual"
+  ],
+  "preprocesamiento": "log1p(ingresos, ticket, gasto) + StandardScaler",
+  "k_evaluados": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "inercia_kmeans": [
+    10569.4,
+    6015.5,
+    3744.9,
+    3336.6,
+    2997.2,
+    2674.7,
+    2411.0,
+    2283.3,
+    2157.9
+  ],
+  "silueta_kmeans": [
+    0.3697,
+    0.4387,
+    0.4851,
+    0.4212,
+    0.3559,
+    0.3211,
+    0.2947,
+    0.2807,
+    0.2685
+  ],
+  "silueta_kmedoids": [
+    0.3687,
+    0.4402,
+    0.4846,
+    0.4072,
+    0.3676,
+    0.3123,
+    0.3101,
+    0.2692,
+    0.2571
+  ],
+  "silueta_jerarquico": [
+    0.3687,
+    0.4397,
+    0.4769,
+    0.3961,
+    0.3434,
+    0.3011,
+    0.2646,
+    0.241,
+    0.2312
+  ],
+  "k_codo": 4,
+  "k_max_silueta": 4,
+  "k_elegido": 4,
+  "implementacion_kmedoids": "implementación propia (numpy)",
+  "metricas_por_algoritmo": {
+    "K-means": {
+      "silueta": 0.4851,
+      "davies_bouldin": 0.7664,
+      "calinski_harabasz": 3486.3,
+      "ARI_vs_segmento_latente": 0.946,
+      "tamanos_clusters": [
+        813,
+        792,
+        610,
+        985
+      ]
+    },
+    "K-medoids": {
+      "silueta": 0.4846,
+      "davies_bouldin": 0.7621,
+      "calinski_harabasz": 3474.2,
+      "ARI_vs_segmento_latente": 0.94,
+      "tamanos_clusters": [
+        962,
+        808,
+        814,
+        616
+      ]
+    },
+    "Jerárquico (Ward)": {
+      "silueta": 0.4769,
+      "davies_bouldin": 0.7824,
+      "calinski_harabasz": 3358.5,
+      "ARI_vs_segmento_latente": 0.9644,
+      "tamanos_clusters": [
+        1020,
+        796,
+        803,
+        581
+      ]
+    }
+  },
+  "ARI_entre_algoritmos": {
+    "KMeans_vs_KMedoids": 0.9757,
+    "KMeans_vs_Jerarquico": 0.9367,
+    "KMedoids_vs_Jerarquico": 0.9275
+  },
+  "pca_varianza_explicada": [
+    0.4508,
+    0.4028
+  ],
+  "perfiles_kmeans": {
+    "0": {
+      "edad": 67.48,
+      "ingresos_anuales": 23037.15,
+      "frecuencia_mensual": 15.96,
+      "ticket_promedio": 17.56,
+      "gasto_mensual": 281.98,
+      "n_clientes": 813,
+      "pct": 25.4,
+      "perfil": "Adultos mayores: compra frecuente y de bajo ticket"
+    },
+    "1": {
+      "edad": 23.19,
+      "ingresos_anuales": 14737.87,
+      "frecuencia_mensual": 4.82,
+      "ticket_promedio": 19.49,
+      "gasto_mensual": 92.95,
+      "n_clientes": 792,
+      "pct": 24.8,
+      "perfil": "Jóvenes/estudiantes: bajo ingreso y bajo gasto"
+    },
+    "2": {
+      "edad": 33.17,
+      "ingresos_anuales": 94360.63,
+      "frecuencia_mensual": 3.11,
+      "ticket_promedio": 112.11,
+      "gasto_mensual": 342.69,
+      "n_clientes": 610,
+      "pct": 19.1,
+      "perfil": "Profesionales premium: pocas visitas, ticket alto"
+    },
+    "3": {
+      "edad": 41.38,
+      "ingresos_anuales": 39280.48,
+      "frecuencia_mensual": 13.8,
+      "ticket_promedio": 54.83,
+      "gasto_mensual": 757.74,
+      "n_clientes": 985,
+      "pct": 30.8,
+      "perfil": "Familias: alta frecuencia y mayor gasto mensual"
+    }
+  },
+  "correlaciones": {
+    "edad": {
+      "edad": 1.0,
+      "ingresos_anuales": -0.152,
+      "frecuencia_mensual": 0.69,
+      "ticket_promedio": -0.231,
+      "gasto_mensual": 0.125
+    },
+    "ingresos_anuales": {
+      "edad": -0.152,
+      "ingresos_anuales": 1.0,
+      "frecuencia_mensual": -0.337,
+      "ticket_promedio": 0.768,
+      "gasto_mensual": 0.191
+    },
+    "frecuencia_mensual": {
+      "edad": 0.69,
+      "ingresos_anuales": -0.337,
+      "frecuencia_mensual": 1.0,
+      "ticket_promedio": -0.323,
+      "gasto_mensual": 0.487
+    },
+    "ticket_promedio": {
+      "edad": -0.231,
+      "ingresos_anuales": 0.768,
+      "frecuencia_mensual": -0.323,
+      "ticket_promedio": 1.0,
+      "gasto_mensual": 0.442
+    },
+    "gasto_mensual": {
+      "edad": 0.125,
+      "ingresos_anuales": 0.191,
+      "frecuencia_mensual": 0.487,
+      "ticket_promedio": 0.442,
+      "gasto_mensual": 1.0
+    }
+  }
+}

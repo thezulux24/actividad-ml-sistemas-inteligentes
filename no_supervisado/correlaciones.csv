@@ -1,0 +1,6 @@
+,edad,ingresos_anuales,frecuencia_mensual,ticket_promedio,gasto_mensual
+edad,1.0,-0.152,0.69,-0.231,0.125
+ingresos_anuales,-0.152,1.0,-0.337,0.768,0.191
+frecuencia_mensual,0.69,-0.337,1.0,-0.323,0.487
+ticket_promedio,-0.231,0.768,-0.323,1.0,0.442
+gasto_mensual,0.125,0.191,0.487,0.442,1.0
